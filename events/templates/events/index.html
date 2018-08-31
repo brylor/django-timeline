@@ -1,0 +1,46 @@
+{% extends 'events/base.html' %}
+{% block pagecontent %}
+{% if all_events %}
+    <div id="visualization"></div>
+    <script type="text/javascript">
+
+      // DOM element where the Timeline will be attached
+      var container = document.getElementById('visualization');
+
+      // Create a DataSet (allows two way data-binding)
+      // YYYY-mm-dd
+      var items = new vis.DataSet([
+      {% for event in all_events %}
+        {id: '{{event.id}}',
+        content: '{{event.title}}, {{event.julian_start}}',
+        title: '{{event.title}} Start: {{event.start_year}},{{event.start_month}}, end: {{event.end_year}},{{event.end_month}}',
+        start: new Date({{event.start_year}},{{event.start_month}}),
+        end: new Date({{event.end_year}},{{event.end_month}}),
+      },
+      {% endfor %}
+      ]);
+new Date(-3500, 0, 1)
+      // Configuration for the Timeline
+      var options = {
+        moveable: true,
+        zoomable: true,
+        width: '100%',
+        height: '300px',
+        maxHeight: ' 300px',
+        showTooltips:true
+        //showMajorLabels: false,
+        //showMinorLabels: false,
+
+      };
+
+      // Create a Timeline
+      var timeline = new vis.Timeline(container, items, options);
+
+    </script>
+
+
+
+{% else %}
+    <p>No Events are available.</p>
+{% endif %}
+{% endblock %}

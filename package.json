@@ -1,0 +1,26 @@
+{
+  "name": "dataparser",
+  "version": "1.0.0",
+  "description": "django app which plots events on visjs timeline",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cheerio-tableparser": "^1.0.1",
+    "request": "^2.88.0",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brylor/django-timeline.git"
+  },
+  "author": "Bryan P. Taylor",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/brylor/django-timeline/issues"
+  },
+  "homepage": "https://github.com/brylor/django-timeline#readme"
+}
