@@ -14,12 +14,17 @@
         {id: '{{event.id}}',
         content: '{{event.title}}, {{event.julian_start}}',
         title: '{{event.title}} Start: {{event.start_year}},{{event.start_month}}, end: {{event.end_year}},{{event.end_month}}',
-        start: new Date({{event.start_year}},{{event.start_month}}),
-        end: new Date({{event.end_year}},{{event.end_month}}),
+        start: new Date({{event.start_year}},{{event.start_month}},{{event.start_day}}),
+
+        {% if event.start_day != event.end_day  %}
+        end: new Date({{event.end_day}},{{event.start_month}},{{event.end_day}})
+        {% endif %}
+
+
       },
       {% endfor %}
       ]);
-new Date(-3500, 0, 1)
+
       // Configuration for the Timeline
       var options = {
         moveable: true,

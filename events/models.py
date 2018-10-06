@@ -24,10 +24,12 @@ class Event(models.Model):
     start_year = models.IntegerField(('Start Year'), default=datetime.datetime.now().year)
     end_year = models.IntegerField(('End Year'), default=datetime.datetime.now().year)
 
-    start_month = models.IntegerField(('Start Month'), default='01',choices=MONTHS.items())
-    end_month = models.IntegerField(('End Month'), default='01',choices=MONTHS.items())
+    start_month = models.IntegerField(('Start Month'), default='00',choices=MONTHS.items())
+    end_month = models.IntegerField(('End Month'), default='00',choices=MONTHS.items())
 
     start_day = models.IntegerField(('Start Day'), default=datetime.datetime.now().day)
+    end_day = models.IntegerField(('End Day'), default=datetime.datetime.now().day)
+
     def __str__(self):
        return self.title
 
